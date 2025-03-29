@@ -5,7 +5,6 @@ import colorgram
 
 my_turtle = Turtle()
 my_turtle.shape("circle")
-my_turtle.color("orange")
 my_turtle.pensize(10)
 my_turtle.speed("fastest")
 
@@ -25,16 +24,12 @@ def get_random_color():
 
     return rgb_list
 
-def draw_line(turtle_obj):
-    angle = random.randint(1,4);
-    turtle_obj.forward(50)
-
-    # change draw type
-    turtle_obj.right(angle * 90)
-
-    turtle_obj.color(get_random_color())
-
-while True:
-    draw_line(my_turtle)
+for x in range(-400,0,40):
+    for y in range(-400,0,40):
+        my_turtle.penup()
+        my_turtle.goto(x, y)
+        my_turtle.pendown()
+        my_turtle.stamp()
+        my_turtle.color(get_random_color())
 
 my_screen.exitonclick()

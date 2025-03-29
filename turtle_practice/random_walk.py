@@ -12,7 +12,8 @@ def get_random_color():
     G = random.random()
     B = random.random()
 
-    return R, G ,B
+    rgb = (R, G, B)
+    return rgb
 
 def draw_line(turtle_obj):
     angle = random.randint(1,4);
@@ -20,8 +21,8 @@ def draw_line(turtle_obj):
 
     # change draw type
     turtle_obj.right(angle * 90)
-    R, G, B = get_random_color()
-    turtle_obj.color(R, G, B)
+
+    turtle_obj.color(get_random_color())
 
 while True:
     draw_line(my_turtle)

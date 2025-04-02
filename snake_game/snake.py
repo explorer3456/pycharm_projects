@@ -10,15 +10,28 @@ class Snake:
             t.penup()
             self.body_list.append(t)
 
-    def move(self, angle):
+    def move(self):
         for i in range(len(self.body_list)-1, -1, -1):
             new_x = self.body_list[i - 1].xcor()
             new_y = self.body_list[i - 1].ycor()
 
             if i > 0:
                 self.body_list[i].goto(new_x, new_y)
-        self.body_list[0].setheading(angle)
+
         self.body_list[0].forward(20)
+
+    def up(self):
+        self.body_list[0].setheading(90)
+
+    def down(self):
+        self.body_list[0].setheading(-90)
+
+    def left(self):
+        self.body_list[0].setheading(180)
+
+    def right(self):
+        self.body_list[0].setheading(0)
+
 
 
 

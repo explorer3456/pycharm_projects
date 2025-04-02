@@ -1,5 +1,10 @@
 from turtle import Turtle
 
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
+
 class Snake:
     def __init__(self):
         self.body_list = []
@@ -21,16 +26,20 @@ class Snake:
         self.body_list[0].forward(20)
 
     def up(self):
-        self.body_list[0].setheading(90)
+        if self.body_list[0].heading() != DOWN:
+            self.body_list[0].setheading(UP)
 
     def down(self):
-        self.body_list[0].setheading(-90)
+        if self.body_list[0].heading() != UP:
+            self.body_list[0].setheading(DOWN)
 
     def left(self):
-        self.body_list[0].setheading(180)
+        if self.body_list[0].heading() != RIGHT:
+            self.body_list[0].setheading(LEFT)
 
     def right(self):
-        self.body_list[0].setheading(0)
+        if self.body_list[0].heading() != LEFT:
+            self.body_list[0].setheading(RIGHT)
 
 
 

@@ -26,4 +26,7 @@ while not is_game_done:
     snake.move()
     time.sleep(0.1)
 
+    if snake.body_list[0].distance(food) < 17:
+        food.refresh()
+
 s.exitonclick()

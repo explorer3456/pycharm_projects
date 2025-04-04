@@ -25,6 +25,16 @@ class Snake:
 
         self.body_list[0].forward(20)
 
+    def extend(self):
+        new_x = self.body_list[-1].xcor()
+        new_y = self.body_list[-1].ycor()
+
+        t = Turtle(shape="square")
+        t.color("white")
+        t.penup()
+        t.goto(new_x, new_y)
+        self.body_list.append(t)
+
     def up(self):
         if self.body_list[0].heading() != DOWN:
             self.body_list[0].setheading(UP)

@@ -43,8 +43,10 @@ while not is_game_done:
 
     if snake.body_list[0].distance(food) < 17:
         food.refresh()
+        snake.extend()
         score.update_score()
         score.display_score()
+
     if is_collision_with_wall(snake):
         is_game_done = True
         score.show_game_over()

@@ -5,6 +5,8 @@ DOWN = 270
 LEFT = 180
 RIGHT = 0
 
+INIT_POSITION = [(0,0), (-20,0), (-40,0)]
+
 class Snake:
     def __init__(self):
         self.body_list = []
@@ -13,6 +15,7 @@ class Snake:
             t = Turtle(shape="square")
             t.color("white")
             t.penup()
+            t.goto(INIT_POSITION[i])
             self.body_list.append(t)
 
     def move(self):

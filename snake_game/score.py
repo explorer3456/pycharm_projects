@@ -12,11 +12,13 @@ class Score(Turtle):
 
     def display_score(self):
         self.clear()
+        self.color("white")
         self.write(arg=f'Score : {self.score}', align="center", font=('Arial', 12, 'normal'))
 
     def show_game_over(self):
         self.goto(0,0)
-        self.write("GAME OVER")
+        self.color("red")
+        self.write("GAME OVER", )
 
     def update_score(self):
         self.score += 1

@@ -27,6 +27,15 @@ s.onkey(fun=snake.right, key="d")
 
 is_game_done = False
 
+def is_collision_with_wall(snake_obj):
+    x = snake_obj.body_list[0].xcor()
+    y = snake_obj.body_list[0].ycor()
+    if x > 280 or x < -280 or y > 280 or y < -280:
+        return True
+    else:
+        return False
+
+
 while not is_game_done:
     s.update()
     snake.move()
@@ -36,5 +45,13 @@ while not is_game_done:
         food.refresh()
         score.update_score()
         score.display_score()
+    if is_collision_with_wall(snake):
+        is_game_done = True
+        score.show_game_over()
+
+
+
+
+
 
 s.exitonclick()

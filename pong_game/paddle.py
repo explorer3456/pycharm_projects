@@ -3,7 +3,6 @@ from turtle import Turtle
 class Paddle(Turtle):
     def __init__(self, init_x, init_y):
         super().__init__();
-        self.speed("fastest")
         self.hideturtle()
         self.color("white")
         self.shape("square")

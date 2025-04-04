@@ -8,9 +8,12 @@ class Score(Turtle):
         self.hideturtle()
         self.goto(0, 280)
         self.score = 0
-        self.write(arg=f'Score : {self.score}', align="center", font=('Arial', 12, 'normal'))
+        self.display_score()
 
+    def display_score(self):
+        self.clear()
+        self.write(arg=f'Score : {self.score}', align="center", font=('Arial', 12, 'normal'))
 
     def update_score(self):
         self.score += 1
-        self.write(arg=f'Score : {self.score}', align="center", font=('Arial', 12, 'normal'))
+

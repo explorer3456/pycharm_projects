@@ -35,5 +35,6 @@ while not is_game_done:
     if snake.body_list[0].distance(food) < 17:
         food.refresh()
         score.update_score()
+        score.display_score()
 
 s.exitonclick()

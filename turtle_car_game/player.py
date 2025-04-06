@@ -17,3 +17,9 @@ class Player(Turtle):
 
     def move(self):
         self.forward(20)
+
+    def reset_location(self):
+        self.goto(STARTING_POSITION)
+
+    def locate_player(self, x, y):
+        self.goto(x, y);

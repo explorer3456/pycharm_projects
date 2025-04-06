@@ -19,6 +19,8 @@ class CarManager(Turtle):
         y = random.randint(-260, 260)
         self.goto(x, y)
 
+        self.move_factor = 1
+
         self.setheading(180)
         self.showturtle()
 
@@ -27,6 +29,9 @@ class CarManager(Turtle):
         self.goto(260, new_y)
 
     def move(self):
-        self.forward(STARTING_MOVE_DISTANCE)
+        self.forward(STARTING_MOVE_DISTANCE + self.move_factor * MOVE_INCREMENT)
         if self.xcor() < -260:
             self.reset_car()
+
+    def locate_car(self, x, y):
+        self.goto(x, y)

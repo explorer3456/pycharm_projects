@@ -2,7 +2,7 @@ from turtle import Screen
 from paddle import Paddle
 from ball import Ball
 import time
-import math
+from score import Scoreboard
 
 is_game_done = False
 
@@ -17,6 +17,7 @@ field.listen()
 user_a = Paddle(350, 0)
 user_b = Paddle(-350, 0)
 ball = Ball()
+score_board = Scoreboard()
 
 field.onkey(fun=user_a.move_up, key="w")
 field.onkey(fun=user_a.move_down, key="s")
@@ -30,6 +31,9 @@ def is_ball_hit_wall(b_obj):
 def is_ball_hit_paddle(b_obj, paddle):
     return b_obj.xcor() > 320 and b_obj.distance(paddle) < 50
 
+def is_ball_out(b_obj):
+    return b_obj.xcor() > 340 or b_obj.xcor() < -340
+
 while not is_game_done:
     field.update()
 
@@ -42,6 +46,18 @@ while not is_game_done:
         ball.direction *= -1
         ball.bounce()
 
-    time.sleep(0.25)
+    if is_ball_out(ball):
+        if ball.direction == 1:
+            score_board.right_score += 1
+        elif ball.direction == -1:
+            score_board.left_score += 1
+
+        score_board.update_score()
+
+        ball.direction *= -1
+        ball.reset_ball()
+
+
+    time.sleep(0.01)
 
 field.exitonclick()

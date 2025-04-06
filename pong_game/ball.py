@@ -26,5 +26,11 @@ class Ball(Turtle):
         new_y = self.ycor() + (self.direction * math.tan(math.radians(self.heading())) * STEP_SIZE)
         self.goto(new_x, new_y)
 
+    def reset_ball(self):
+        self.hideturtle()
+        self.goto(0,0)
+        self.showturtle()
+
+
 
 

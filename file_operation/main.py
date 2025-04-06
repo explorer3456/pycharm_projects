@@ -1,4 +1,3 @@
-file = open("test_file")
-contents = file.read()
-print(contents)
-file.close()
+with open("test_file") as file:
+    content = file.read()
+    print(content)

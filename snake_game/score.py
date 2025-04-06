@@ -12,6 +12,7 @@ class Score(Turtle):
         with open("data.txt", mode="r") as data:
             self.max_score = int(data.read())
 
+
         self.display_score()
 
     def display_score(self):

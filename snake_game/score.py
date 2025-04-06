@@ -8,17 +8,22 @@ class Score(Turtle):
         self.hideturtle()
         self.goto(0, 280)
         self.score = 0
+        self.max_score = 0
         self.display_score()
 
     def display_score(self):
         self.clear()
+        self.goto(0, 280)
         self.color("white")
-        self.write(arg=f'Score : {self.score}', align="center", font=('Arial', 12, 'normal'))
+        self.write(arg=f'Score : {self.score}, Highest: {self.max_score}', align="center", font=('Arial', 12, 'normal'))
 
     def show_game_over(self):
         self.goto(0,0)
         self.color("red")
-        self.write("GAME OVER", )
+        self.write("")
+        self.write("GAME OVER")
+        if self.score > self.max_score:
+            self.max_score = self.score
 
     def update_score(self):
         self.score += 1

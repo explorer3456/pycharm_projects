@@ -12,11 +12,8 @@ s.bgcolor("black")
 s.tracer(0)
 s.listen()
 
-
 food = Food()
-
 score = Score()
-
 snake = Snake()
 
 s.onkey(fun=snake.up, key="w")
@@ -48,19 +45,23 @@ while not is_game_done:
         score.display_score()
 
     if is_collision_with_wall(snake):
-        is_game_done = True
+        # is_game_done = True
         score.show_game_over()
+        s.update()
+        time.sleep(1)
+        score.display_score()
+        s.update()
+        snake.reset_snake()
+
 
     for body in snake.body_list[1:]:
         if snake.body_list[0].distance(body) < 17:
-            is_game_done = True
+            # is_game_done = True
             score.show_game_over()
-
-
-
-
-
-
+            s.update()
+            time.sleep(1)
+            snake.reset_snake()
+            score.display_score()
 
 
 s.exitonclick()

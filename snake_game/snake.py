@@ -20,13 +20,31 @@ class Snake:
 
     def move(self):
         for i in range(len(self.body_list)-1, -1, -1):
-            new_x = self.body_list[i - 1].xcor()
-            new_y = self.body_list[i - 1].ycor()
+            new_x = self.body_list[i-1].xcor()
+            new_y = self.body_list[i-1].ycor()
 
             if i > 0:
                 self.body_list[i].goto(new_x, new_y)
 
         self.body_list[0].forward(20)
+
+    def reset_snake(self):
+
+        # before we learn class heritage, so you should manually clear the turtles
+        for body in self.body_list:
+            body.reset()
+
+        # empty the list
+        self.body_list = []
+
+        for i in range(3):
+            t = Turtle(shape="square")
+            t.color("white")
+            t.penup()
+            t.goto(INIT_POSITION[i])
+            self.body_list.append(t)
+
+
 
     def extend(self):
         new_x = self.body_list[-1].xcor()

@@ -46,3 +46,24 @@ print(data["temp"].max())
 # data["temp"] is same as data.temp.
 print(data.temp)
 
+# How to access row data using Panda ?
+# ex) find row that has maximum temperature.
+print(data[data.temp == data.temp.max()])
+
+# how to access single column data using Panda ?
+monday_data = data[data.day == "Monday"]
+print(monday_data)
+print(monday_data.temp) # 0 12 (i.e 0 is index, 12 is actual temperature )
+print(monday_data.temp[0]) # 12 (i.e 12 is actual temperature )
+
+# Create data frame from scratch
+data_dict = {
+    "students" : ["Amy", "James", "Angela"],
+    "scores" : [76, 67, 33]
+}
+
+# Covert data frame into csv files
+my_data_frame = pandas.DataFrame(data_dict)
+print(my_data_frame)
+print(my_data_frame.to_csv("./my_new_csv.csv"))
+

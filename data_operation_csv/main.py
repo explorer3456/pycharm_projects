@@ -51,6 +51,7 @@ print(data.temp)
 print(data[data.temp == data.temp.max()])
 
 # how to access single column data using Panda ?
+print("fffff")
 monday_data = data[data.day == "Monday"]
 print(monday_data)
 print(monday_data.temp) # 0 12 (i.e 0 is index, 12 is actual temperature )
@@ -63,7 +64,7 @@ data_dict = {
 }
 
 # Covert data frame into csv files
-my_data_frame = pandas.DataFrame(data_dict)
-print(my_data_frame)
-print(my_data_frame.to_csv("./my_new_csv.csv"))
+# my_data_frame = pandas.DataFrame(data_dict)
+# print(my_data_frame)
+# print(my_data_frame.to_csv("./my_new_csv.csv"))
 
